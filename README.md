@@ -1,5 +1,13 @@
 # ShoppingListWeb
 
+Lab assignment for course App Development 2018
+
+Thomas More campus De Nayer
+
+Bachelor Elektronica-ICT option Application Development
+
+---------------------------------------------------------------------------------------------------------------------------------
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## Development server
