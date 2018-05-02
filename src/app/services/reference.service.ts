@@ -1,0 +1,41 @@
+import { Injectable } from '@angular/core';
+import { Reference } from '../references/reference';
+
+@Injectable()
+export class ReferenceService {
+  references: Reference[] = [
+    // {id: '', author: '', title: '', year: 2018, organisation: '', url: '', urlDate: new Date('')},
+    {id: 'Angular_2018', author: 'Angular', title: 'What is Angular?', year: 2018, organisation: 'Google',
+      url: 'https://angular.io/docs', urlDate: new Date('2018-05-02')},
+    {id: 'W3SchoolsBootstrap_2018', author: 'W3Schools.com', title: 'Bootstrap 4 Tutorial', year: 2018, organisation: '',
+      url: 'https://www.w3schools.com/bootstrap4/default.asp', urlDate: new Date('2018-05-02')},
+    {id: 'AngularPipes_2018', author: 'Angular',
+      title: 'Pipes - Appendix: No FilterPipe or OrderByPipe', year: 2018, organisation: 'Google',
+      url: 'https://angular.io/guide/pipes#appendix-no-filterpipe-or-orderbypipe', urlDate: new Date('2018-05-02')},
+    {id: 'Ahmad_2016', author: 'Faheel Ahmad',
+      title: 'Bootstrap 4 - Responsive cards in card-columns', year: 2016, organisation: 'Stack Overflow',
+      url: 'https://stackoverflow.com/questions/34140793/bootstrap-4-responsive-cards-in-card-columns', urlDate: new Date('2018-05-02')},
+    {id: 'GoogleMaterialDesign_2018', author: 'Google', title: 'Material Design - Color palette', year: 2018,
+        organisation: '', url: 'https://material.io/guidelines/style/color.html#color-color-tool', urlDate: new Date('2018-05-02')},
+    {id: 'smugglerFlyn_2014', author: 'smugglerFlyn', title: 'Best way to override Bootstrap CSS', year: 2014,
+      organisation: 'Stack Overflow', url: 'https://stackoverflow.com/questions/20721248/best-way-to-override-bootstrap-css',
+      urlDate: new Date('2018-05-02')},
+  ];
+
+  constructor() { }
+
+  getReferences() {
+    // Ref: AngularPipes_2018
+    this.references.sort((a, b) => {
+      if (a.id < b.id) {
+        return -1;
+      } else if (a.id > b.id) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
+    return this.references;
+  }
+}
