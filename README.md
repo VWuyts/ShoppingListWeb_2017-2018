@@ -1,6 +1,6 @@
 # ShoppingListWeb
 
-Lab assignment for course App Development 2018
+Lab assignment for course GUI Development 2017-2018
 
 Thomas More campus De Nayer
 
