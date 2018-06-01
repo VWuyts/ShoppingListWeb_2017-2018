@@ -17,9 +17,11 @@ export class ReferenceService {
       url: 'https://stackoverflow.com/questions/34140793/bootstrap-4-responsive-cards-in-card-columns', urlDate: new Date('2018-05-02')},
     {id: 'GoogleMaterialDesign_2018', author: 'Google', title: 'Material Design - Color palette', year: 2018,
         organisation: '', url: 'https://material.io/guidelines/style/color.html#color-color-tool', urlDate: new Date('2018-05-02')},
-    {id: 'smugglerFlyn_2014', author: 'smugglerFlyn', title: 'Best way to override Bootstrap CSS', year: 2014,
+    {id: 'SmugglerFlyn_2014', author: 'smugglerFlyn', title: 'Best way to override Bootstrap CSS', year: 2014,
       organisation: 'Stack Overflow', url: 'https://stackoverflow.com/questions/20721248/best-way-to-override-bootstrap-css',
       urlDate: new Date('2018-05-02')},
+    {id: 'AngularFontAwesome', author: 'baruchvlz', title: 'Angular Font Awesome', year: 2018, organisation: 'npm',
+      url: 'https://www.npmjs.com/package/angular-font-awesome', urlDate: new Date('2018-05-22')},
   ];
 
   constructor() { }

@@ -11,7 +11,7 @@ import { ReferenceService } from '../services/reference.service';
   providers: [ReferenceService]
 })
 export class ReferencesComponent implements OnInit {
-  static pageTitle = 'References';
+  static pageTitle = 'Referenties';
   references: Reference[];
 
   constructor(
