@@ -10,10 +10,18 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReferencesComponent } from './references/references.component';
 import { HomeComponent } from './home/home.component';
+import { ConstructionComponent } from './construction/construction.component';
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: ConstructionComponent },
+  { path: 'download', component: ConstructionComponent },
+  { path: 'hulp', component: ConstructionComponent },
+  { path: 'login', component: ConstructionComponent },
+  { path: 'recepten', component: ConstructionComponent },
   { path: 'referenties', component: ReferencesComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'registreren', component: ConstructionComponent },
+  { path: 'winkels', component: ConstructionComponent }
 ];
 
 
@@ -23,7 +31,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     ReferencesComponent,
-    HomeComponent
+    HomeComponent,
+    ConstructionComponent
   ],
   imports: [
     BrowserModule,

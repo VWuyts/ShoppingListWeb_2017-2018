@@ -1,20 +1,20 @@
 <div class="container-fluid">
   <div class="container">
     <div class="row align-items-center ">
-      <div class="col-2 text-right">
-        <a routerLink="/referenties">
-          <img src="/assets/images/mand.jpg" alt="boodschappenmand" />
+      <div class="col-lg-2 text-right">
+        <a routerLink="/">
+          <img src="/assets/images/mandje.png" alt="logo" />
         </a>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6">
           <h1 class="display-4 text-center">Boodschappenlijst</h1>
       </div>
-      <div class="col-4 btn-group">
-        <button type="button" class="btn btn-light ml-auto">Inloggen</button>
-        <button type="button" class="btn btn-light">Registreren</button>
+      <div class="col-lg-4 btn-group">
+        <button type="button" class="btn btn-light ml-auto" (click)="onLogin()">Inloggen</button>
+        <button type="button" class="btn btn-light" (click)="onRegister()">Registreren</button>
       </div>
     </div> <!-- end row -->
-    <nav class="navbar navbar-expand-md navbar-light">
+    <nav class="navbar navbar-expand-md navbar-light sticky-top">
       <!-- toggler/collapsibe Button -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -22,23 +22,23 @@
       <!-- links -->
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/home">Home</a>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" routerLink="/">Home</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/lijst">Mijn Lijst</a>
+            <a class="nav-link" routerLink="/lijst">Mijn Boodschappenlijst</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link disabled" routerLink="/recepten">Mijn Recepten</a>
+            <a class="nav-link" routerLink="/recepten">Mijn Recepten</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link disabled" routerLink="/winkels">Mijn Winkels</a>
+            <a class="nav-link" routerLink="/winkels">Mijn Winkels</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="/download">Download App</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link disabled" routerLink="/hulp">Hulp</a>
+              <a class="nav-link" routerLink="/hulp">Hulp</a>
           </li>
         </ul>
         <!-- search form-->
