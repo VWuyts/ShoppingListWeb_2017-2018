@@ -1,0 +1,64 @@
+<!-- alphabetically sorted -->
+<div *ngIf="childSortAbc">
+  <div class="list-group">
+    <a
+      routerLink="./pasProductAan/{{listItem.id}}"
+      class="list-group-item p-1"
+      *ngFor="let listItem of shoppingList">
+      <div class="row text-dark">
+        <div class="col-2 imgHeight">
+            <img *ngIf="listItem.image !== ''" src="/assets/images/{{listItem.image}}" alt="Productfoto" />
+        </div>
+        <div class="col-7">
+          <h6 class="m-0">{{listItem.name}}</h6>
+          <span *ngIf="listItem.note !== ''" class="text-muted">{{listItem.note}}</span>
+          <span *ngIf="listItem.note !== '' &&  listItem.amount > 0" class="text-muted"> - </span>
+          <span *ngIf="listItem.amount > 0" class="text-muted">{{listItem.amount}} {{listItem.unit}}</span>
+        </div>
+        <div class="col-1">
+          <h2 *ngIf="listItem.inPromotion">$</h2>
+        </div>
+        <div class="col-2">
+          <img *ngIf="listItem.shop !== ''" src="/assets/images/logo_{{listItem.shop}}.png" alt="winkellogo" />
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- sorted per category -->
+<div *ngIf="!childSortAbc">
+  <div *ngFor="let category of categories; index as i">
+    <p class="border border-left-0 border-right-0 m-0 pl-2"
+      *ngIf="shoppingListCategory[i].length > 0">
+      {{category}}
+    </p>
+    <div class="list-group">
+      <a
+        routerLink="./pasProductAan/{{listItem.id}}"
+        class="list-group-item p-1"
+        *ngFor="let listItem of shoppingListCategory[i]">
+        <div class="row text-dark">
+          <div class="col-2 imgHeight">
+              <img *ngIf="listItem.image !== ''" src="/assets/images/{{listItem.image}}" alt="Productfoto" />
+          </div>
+          <div class="col-7">
+            <h6 class="m-0">{{listItem.name}}</h6>
+            <span *ngIf="listItem.note !== ''" class="text-muted">{{listItem.note}}</span>
+            <span *ngIf="listItem.note !== '' &&  listItem.amount > 0" class="text-muted"> - </span>
+            <span *ngIf="listItem.amount > 0" class="text-muted">{{listItem.amount}} {{listItem.unit}}</span>
+          </div>
+          <div class="col-1">
+            <h2 *ngIf="listItem.inPromotion">$</h2>
+          </div>
+          <div class="col-2">
+            <img *ngIf="listItem.shop !== ''" src="/assets/images/logo_{{listItem.shop}}.png" alt="winkellogo" />
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+

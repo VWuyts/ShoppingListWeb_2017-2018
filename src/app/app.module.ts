@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-/* Ref: */
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
@@ -11,12 +10,23 @@ import { FooterComponent } from './footer/footer.component';
 import { ReferencesComponent } from './references/references.component';
 import { HomeComponent } from './home/home.component';
 import { ConstructionComponent } from './construction/construction.component';
+import { ListComponent } from './list/list.component';
+import { ListMainComponent } from './list/list-main/list-main.component';
+import { AddProductComponent } from './list/add-product/add-product.component';
+import { EditProductComponent } from './list/edit-product/edit-product.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: ConstructionComponent },
   { path: 'download', component: ConstructionComponent },
   { path: 'hulp', component: ConstructionComponent },
+  { path: 'lijst', component: ListMainComponent, children: [
+    { path: 'deelLijst', component: ConstructionComponent },
+    { path: 'mailLijst', component: ConstructionComponent },
+    { path: 'pasProductAan/:id', component: EditProductComponent },
+    { path: 'printLijst', component: ConstructionComponent },
+    { path: 'voegProductToe', component: AddProductComponent }
+  ]},
   { path: 'login', component: ConstructionComponent },
   { path: 'recepten', component: ConstructionComponent },
   { path: 'referenties', component: ReferencesComponent },
@@ -32,7 +42,11 @@ const appRoutes: Routes = [
     FooterComponent,
     ReferencesComponent,
     HomeComponent,
-    ConstructionComponent
+    ConstructionComponent,
+    ListComponent,
+    ListMainComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

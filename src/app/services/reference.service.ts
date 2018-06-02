@@ -20,8 +20,10 @@ export class ReferenceService {
     {id: 'SmugglerFlyn_2014', author: 'smugglerFlyn', title: 'Best way to override Bootstrap CSS', year: 2014,
       organisation: 'Stack Overflow', url: 'https://stackoverflow.com/questions/20721248/best-way-to-override-bootstrap-css',
       urlDate: new Date('2018-05-02')},
-    {id: 'AngularFontAwesome', author: 'baruchvlz', title: 'Angular Font Awesome', year: 2018, organisation: 'npm',
-      url: 'https://www.npmjs.com/package/angular-font-awesome', urlDate: new Date('2018-05-22')},
+    {id: 'FontAwesome2018', author: 'Fonticons, Inc', title: 'Font Awesome Icons', year: 2018, organisation: '',
+      url: 'https://fontawesome.com/icons?d=gallery', urlDate: new Date('2018-05-22')},
+    {id: 'ProdrawGraphics2018', author: 'ProDraw Graphics', title: 'Free Online *.ICO icon Generator', year: 2018,
+      organisation: '', url: 'http://www.prodraw.net/favicon', urlDate: new Date('2018-06-02')},
   ];
 
   constructor() { }
