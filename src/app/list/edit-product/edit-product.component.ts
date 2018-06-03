@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ListItem } from '../list-item/list-item';
+import { Product } from '../product';
+import { ListService } from '../../services/list.service';
+import { ProductService } from '../../services/product.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-edit-product',
@@ -6,10 +12,69 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
+  id: number;
+  itemName: string;
+  listItem: ListItem;
+  title: string;
+  itemImage: string;
+  categories: string[] = [];
+  itemCategory: string;
+  itemAmount: number;
+  units: string[] = [];
+  itemUnit: string;
+  shops: string[] = [];
+  itemShop: string;
+  itemIsFixedShop: boolean;
+  itemNote: string;
+  itemInPromotion: boolean;
 
-  constructor() { }
+  constructor(private listService: ListService, private productService: ProductService,
+    private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.route.paramMap
+      .subscribe(
+        (params: Params) => {
+          this.id = +params.get('id');
+          this.itemName = params.get('name');
+          this.listItem = this.listService.getListItem(this.id);
+          this.title = this.id >= 0 ? 'Product aanpassen' : 'Nieuw product aanmaken';
+          this.itemImage = this.listItem.image ? '/assets/images/' + this.listItem.image
+            : '/assets/images/camera.svg'; // Ref: FontAwesome_2018
+          this.itemCategory = this.listItem ? this.listItem.category : '';
+          this.itemAmount = this.listItem ? this.listItem.amount : 0;
+          this.itemUnit = this.listItem ? this.listItem.unit : '';
+          this.itemShop = this.listItem ? this.listItem.shop : '';
+          this.itemIsFixedShop = this.listItem ? this.listItem.isFixedShop : false;
+          this.itemNote = this.listItem ? this.listItem.note : '';
+          this.itemInPromotion = this.listItem ? this.listItem.inPromotion : false;
+        }
+      );
+
+      this.categories = this.productService.getCategories();
+      this.units = this.productService.getUnits();
+      this.shops = this.productService.getShops();
+  }
+
+  editListItem() {
+    const productIndex = this.productService.getProductIndex(this.itemName);
+    let product: Product;
+    if (productIndex < 0) {
+      product = this.productService.addProduct(this.itemName, this.itemCategory, this.itemUnit, '', this.itemNote,
+        this.itemShop, this.itemIsFixedShop);
+    } else {
+      product = this.productService.updateProduct(productIndex, this.itemCategory, this.itemUnit, '',
+        this.itemNote, this.itemShop, this.itemIsFixedShop);
+    }
+    this.listService.updateItemInList(this.listItem.id, this.itemAmount, this.itemInPromotion, product);
+    this.router.navigate(['/lijst']);
+  }
+
+  deleteListItem() {
+    if (this.listItem) {
+      this.listService.removeItemFromList(this.listItem);
+    }
+    this.router.navigate(['/lijst']);
   }
 
 }

@@ -547,21 +547,37 @@ export class ProductService {
   units: string[] = [
     'g',
     'kg',
-    'Stuk',
-    'Pak',
-    'Zakje',
-    'Bakje',
-    'Netje',
-    'Pot',
-    'Tros',
-    'Bussel',
-    'Kist',
-    'Karton'
+    'stuk',
+    'pak',
+    'zakje',
+    'bakje',
+    'netje',
+    'pot',
+    'tros',
+    'bussel',
+    'kist',
+    'karton'
   ];
+  shops: string[] = [
+    'Albert Heijn',
+    'Aldi',
+    'Bio-Planet',
+    'Carrefour',
+    'Colruyt',
+    'Delhaize',
+    'Lidl',
+    'Okay',
+    'Spar'
+  ];
+  private lastProductId = 262;
 
   constructor() { }
 
-  getProducts(pCategory: String) {
+  getProductIndex(pName: string) {
+    return this.products.findIndex(el => el.name === pName);
+  }
+
+  getProducts(pCategory: string) {
     const result: Product[] = [];
     for (const product of this.products) {
       if (product.category === pCategory) {
@@ -588,5 +604,28 @@ export class ProductService {
 
   getUnits() {
     return this.units;
+  }
+
+  getShops() {
+    return this.shops;
+  }
+
+  addProduct(pName: string, pCategory: string, pUnit: string, pImage: string, pNote: string, pShop: string, pIsFixedShop: boolean) {
+    this.products.push({id: ++this.lastProductId, name: pName, category: pCategory, unit: pUnit, image: pImage,
+      note: pNote, shop: pShop, isFixedShop: pIsFixedShop});
+
+    return this.products[this.products.length - 1];
+  }
+
+  updateProduct(index: number, pCategory: string, pUnit: string, pImage: string, pNote: string,
+      pShop: string, pIsFixedShop: boolean) {
+    this.products[index].category = pCategory;
+    this.products[index].unit = pUnit;
+    this.products[index].image = pImage;
+    this.products[index].note = pNote;
+    this.products[index].shop = pShop;
+    this.products[index].isFixedShop = pIsFixedShop;
+
+    return this.products[index];
   }
 }

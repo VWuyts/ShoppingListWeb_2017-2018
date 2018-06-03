@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ListItem } from '../list/list-item/list-item';
 import { Product } from '../list/product';
 import { last } from '@angular/router/src/utils/collection';
+import { shiftInitState } from '@angular/core/src/view';
 
 @Injectable()
 export class ListService {
@@ -14,14 +15,14 @@ export class ListService {
       note: '', shop: '', isFixedShop: false},
     {id: 4, amount: 0, inPromotion: false, productId: 45, name: 'Witte selder', category: 'Groenten', unit: '', image: '',
       note: '', shop: '', isFixedShop: false},
-    {id: 5, amount: 3, inPromotion: true, productId: 142, name: 'Cappellini', category: 'Pasta en granen', unit: 'Pak', image: '',
+    {id: 5, amount: 3, inPromotion: true, productId: 142, name: 'Cappellini', category: 'Pasta en granen', unit: 'pak', image: '',
       note: 'Barilla', shop: 'Colruyt', isFixedShop: false},
     {id: 6, amount: 0, inPromotion: false, productId: 232, name: 'Witte bonen', category: 'Conserven', unit: '', image: '',
       note: '', shop: '', isFixedShop: false},
     {id: 7, amount: 0, inPromotion: false, productId: 133, name: 'Sojaroom', category: 'Zuivel', unit: '', image: '',
       note: '', shop: '', isFixedShop: false},
-    {id: 8, amount: 0, inPromotion: false, productId: 246, name: 'Erwten', category: 'Diepvries', unit: '', image: '',
-      note: '', shop: 'Delhaize', isFixedShop: true}
+    {id: 8, amount: 1, inPromotion: false, productId: 246, name: 'Erwten', category: 'Diepvries', unit: 'pak', image: '',
+      note: 'Dit is een notitie om de LimitPipe te tonen, er is ook een UnitPipe', shop: 'Delhaize', isFixedShop: true}
   ];
   private lastId = 8;
 
@@ -63,12 +64,46 @@ export class ListService {
     return result;
   }
 
+  getListItem(pId: number) {
+    if (pId < 1) {
+      return null;
+    }
+
+    const listItem = this.shoppingList.find(
+      (li) => {
+        return li.id === pId;
+      }
+    );
+
+    return listItem === undefined ? null : listItem;
+  }
+
   addProductToList(product: Product) {
     const newId = ++this.lastId;
     this.shoppingList.push({id: newId, amount: 0, inPromotion: false, productId: product.id, name: product.name,
       category: product.category, unit: product.unit, image: product.image, note: product.note, shop: product.shop,
       isFixedShop: product.isFixedShop}
     );
+  }
+
+  updateItemInList(pId: number, pAmount: number, pInPromotion: boolean, product: Product) {
+    const listItem = this.shoppingList.find(
+      li => {
+        return li.id === pId;
+      }
+    );
+    if (listItem) {
+      listItem.amount = pAmount;
+      listItem.inPromotion = pInPromotion;
+      listItem.productId = product.id;
+      listItem.name = product.name;
+      listItem.category = product.category;
+      listItem.unit = product.unit;
+      listItem.image = product.image;
+      listItem.note = product.note;
+      listItem.shop = product.shop;
+      listItem.isFixedShop = product.isFixedShop;
+    }
   }
 
   removeItemFromList(listItem: ListItem) {

@@ -10,8 +10,6 @@ import { ProductService } from '../services/product.service';
 })
 export class ListComponent implements OnInit {
   categories: string[] = [];
-  shoppingList: ListItem[] = [];
-  shoppingListCategory: ListItem[][];
   emptyList = false;
   @Input() childSortAbc: boolean;
 
@@ -19,18 +17,13 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.categories = this.productService.getCategories();
-    this.shoppingList = this.listService.getShoppingList();
-    this.shoppingListCategory = new Array(this.categories.length);
-    for (let i = 0; i < this.categories.length; i++) {
-      this.shoppingListCategory[i] = this.listService.getShoppingListFor(this.categories[i]);
-    }
   }
 
-  clearShoppingList() {
-    this.shoppingList = [];
-    for (let i = 0; i < this.shoppingListCategory.length; i++) {
-      this.shoppingListCategory[i] = [];
-    }
-    this.emptyList = true;
+  getShoppingList() {
+    return this.listService.getShoppingList();
+  }
+
+  getShoppingListFor(category: string) {
+    return this.listService.getShoppingListFor(category);
   }
 }

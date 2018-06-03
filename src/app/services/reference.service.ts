@@ -27,6 +27,9 @@ export class ReferenceService {
       url: 'https://fontawesome.com/icons?d=gallery', urlDate: new Date('2018-05-22')},
     {id: 'ProdrawGraphics_2018', author: 'ProDraw Graphics', title: 'Free Online *.ICO icon Generator', year: 2018,
       organisation: '', url: 'http://www.prodraw.net/favicon', urlDate: new Date('2018-06-02')},
+    {id: 'Mahval_2017', author: 'mahval', title: 'Get value from select option in Angular 4', year: 2017,
+      organisation: 'Stack Overflow', url: 'https://stackoverflow.com/questions/46447459/get-value-from-select-option-in-angular-4',
+      urlDate: new Date('2018-05-02')},
   ];
 
   constructor() { }
