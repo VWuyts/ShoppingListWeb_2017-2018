@@ -1,3 +1,81 @@
-<p>
-  edit-product works!
-</p>
+<h5 class="mb-3">{{title}}</h5>
+<div class="row">
+  <div class="col-4">
+      <img src="{{itemImage}}" alt="productfoto"/>
+  </div>
+  <div class="col-8">
+    <div class="form-group">
+      <label for="name">Naam:</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="itemName" />
+    </div> <!-- end form-group -->
+    <div class="form-group">
+      <label for="category">Categorie:</label>
+      <select class="form-control" id="category" [(ngModel)]="itemCategory">
+        <option
+          *ngFor="let category of categories" [value]="category">
+          {{category}}
+        </option>
+      </select>
+    </div> <!-- end form-group -->
+  </div>
+</div> <!-- end row -->
+<div class="row">
+  <div class="col-4">
+    <div class="form-group">
+      <label for="amount">Aantal:</label>
+      <input type="number" class="form-control" id="amount" min="0" [(ngModel)]="itemAmount" />
+    </div><!-- end form-group -->
+  </div>
+  <div class="col-8">
+    <div class="form-group">
+      <label for="unit">Eenheid:</label>
+      <select class="form-control" id="unit" [(ngModel)]="itemUnit">
+        <option
+          *ngFor="let unit of units" [value]="unit">
+          {{unit}}
+        </option>
+      </select>
+    </div> <!-- end form-group -->
+  </div>
+</div><!-- end row -->
+<div class="row pt-3">
+  <div class="col-4">
+    <label for="shop">Winkel:</label>
+  </div>
+  <div class="col-8">
+    <select class="form-control" id="shop" [(ngModel)]="itemShop">
+      <option
+        *ngFor="let shop of shops" [value]="shop">
+        {{shop}}
+      </option>
+    </select>
+    <div class="form-group form-check">
+      <label class="form-check-label mt-2">
+          <input type="checkbox" class="form-check-input" [(ngModel)]="itemIsFixedShop" />
+        Altijd deze winkel?
+      </label>
+    </div> <!-- end form-group -->
+  </div>
+</div> <!-- end row-->
+<div class="row pt-3">
+  <div class="col-4">
+    <label for="note">Notitie:</label>
+  </div>
+  <div class="col-8">
+    <input type="text" class="form-control" id="note" [(ngModel)]="itemNote" />
+    <div class="form-group form-check">
+        <label class="form-check-label mt-2">
+          <input type="checkbox" class="form-check-input" [(ngModel)]="itemInPromotion" />
+          In promotie?
+        </label>
+      </div> <!-- end form-group -->
+  </div>
+</div> <!-- end row-->
+<div class="row">
+  <div class="col-12">
+    <div class="w-75 mx-auto">
+      <button type="button" class="btn btn-danger mt-4 mr-4" (click)="deleteListItem()">Verwijderen</button>
+      <button type="button" class="btn btn-success mt-4" (click)="editListItem()">Klaar</button>
+    </div>
+  </div>
+</div> <!-- end row -->

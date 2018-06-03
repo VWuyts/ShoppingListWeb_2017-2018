@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ListComponent } from '../list.component';
 import { ListService } from '../../services/list.service';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
-import { ListComponent } from '../list.component';
+
 
 @Component({
   selector: 'app-list-main',
@@ -32,6 +33,6 @@ export class ListMainComponent implements OnInit {
   onClearList() {
     // TODO: ask confirmation
     this.listService.clearShoppingList();
-    this.listComponent.clearShoppingList();
+    this.listComponent.emptyList = true;
   }
 }

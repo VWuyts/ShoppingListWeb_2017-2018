@@ -22,13 +22,10 @@ export class ListItemComponent implements OnInit {
     this.shopSource = '/assets/images/logo_' + this.childListItem.shop + '.png';
   }
 
-  getCompleteNote() {
+  getNote() {
     let completeNote = '';
-    if (this.childListItem.amount > 0) {
-      completeNote += this.childListItem.amount + ' ' + this.childListItem.unit;
-    }
-    if (this.childListItem.note !== '') {
-      completeNote += (this.childListItem.amount > 0 ? ' - ' : '');
+    if (this.childListItem.note) {
+      completeNote += (this.childListItem.amount ? ' - ' : '');
       completeNote += this.childListItem.note;
     }
 

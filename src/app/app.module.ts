@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -8,14 +9,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReferencesComponent } from './references/references.component';
-import { ListComponent } from './list/list.component';
 import { ListMainComponent } from './list/list-main/list-main.component';
+import { ListComponent } from './list/list.component';
+import { ListItemComponent } from './list/list-item/list-item.component';
+import { UnitPipe } from './pipes/unit.pipe';
+import { LimitPipe } from './pipes/limit.pipe';
 import { AddProductComponent } from './list/add-product/add-product.component';
 import { EditProductComponent } from './list/edit-product/edit-product.component';
 import { HomeComponent } from './home/home.component';
 import { ConstructionComponent } from './construction/construction.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
-import { ListItemComponent } from './list/list-item/list-item.component';
 
 
 const appRoutes: Routes = [
@@ -24,10 +27,7 @@ const appRoutes: Routes = [
   { path: 'download', component: ConstructionComponent },
   { path: 'hulp', component: ConstructionComponent },
   { path: 'lijst', component: ListMainComponent, children: [
-    { path: 'deelLijst', component: ConstructionComponent },
-    { path: 'mailLijst', component: ConstructionComponent },
-    { path: 'pasProductAan/:id', component: EditProductComponent },
-    { path: 'printLijst', component: ConstructionComponent },
+    { path: 'pasProductAan/:id/:name', component: EditProductComponent },
     { path: 'voegProductToe', component: AddProductComponent }
   ]},
   { path: 'login', component: ConstructionComponent },
@@ -46,17 +46,20 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     ReferencesComponent,
-    HomeComponent,
-    ConstructionComponent,
-    ListComponent,
     ListMainComponent,
+    ListComponent,
+    ListItemComponent,
+    UnitPipe,
+    LimitPipe,
     AddProductComponent,
     EditProductComponent,
-    PageNotFoundComponentComponent,
-    ListItemComponent
+    HomeComponent,
+    ConstructionComponent,
+    PageNotFoundComponentComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFontAwesomeModule,
     RouterModule.forRoot(appRoutes)
   ],

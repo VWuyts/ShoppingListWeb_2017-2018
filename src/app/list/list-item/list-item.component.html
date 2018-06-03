@@ -3,8 +3,11 @@
       <img *ngIf="showImage" src="{{imageSource}}" alt="Productfoto" class="imgHeight" />
   </div>
   <div class="col-7">
-    <h6 class="m-0">{{childListItem.name}}</h6>
-    <span class="text-muted">{{getCompleteNote()}}</span>
+    <h6 class="m-0">{{childListItem.name | limit: 40}}</h6>
+    <span *ngIf="childListItem.amount > 0" class="text-muted">
+      {{childListItem.amount}} {{childListItem.unit | unit: childListItem.amount}}
+    </span>
+    <span class="text-muted">{{getNote() | limit: 30}}</span>
   </div>
   <div class="col-1">
     <h2 *ngIf="childListItem.inPromotion">$</h2>

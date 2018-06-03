@@ -8,9 +8,9 @@
               Sorteer lijst
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" routerLink="/lijst" (click)="onSortAbc()">Sorteer alfabetisch</a>
-              <a class="dropdown-item" routerLink="/lijst" (click)="onSortCategory()">Sorteer per categorie</a>
-              <a class="dropdown-item disabled" routerLink="/lijst">Sorteer manueel</a>
+              <a class="dropdown-item text-info" routerLink="/lijst" (click)="onSortAbc()">Sorteer alfabetisch</a>
+              <a class="dropdown-item text-info" routerLink="/lijst" (click)="onSortCategory()">Sorteer per categorie</a>
+              <a class="dropdown-item text-info" data-toggle="modal" data-target="#notImplementedMNodal">Sorteer manueel</a>
             </div>
           </div> <!-- end dropdown -->
         </div>
@@ -20,11 +20,11 @@
             Voeg product toe
           </a>
           <div class="btn-group pull-right">
-            <a class="btn btn-outline-info" routerLink="./deelLijst">
+              <a class="btn btn-outline-info text-info" data-toggle="modal" data-target="#notImplementedMNodal">
               <fa name="share-alt"></fa> <!-- Ref: FontAwesome_2018 -->
               Deel lijst
             </a>
-            <a class="btn btn-outline-info" routerLink="./printLijst">
+            <a class="btn btn-outline-info text-info" data-toggle="modal" data-target="#notImplementedMNodal">
               <fa name="print"></fa> <!-- Ref: FontAwesome_2018 -->
               Print lijst
             </a>
@@ -33,11 +33,11 @@
                   Meer
                 </button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" routerLink="./mailLijst">
+                  <a class="dropdown-item text-info" data-toggle="modal" data-target="#notImplementedMNodal">
                     <fa name="envelope"></fa> <!-- Ref: FontAwesome_2018 -->
                     Mail lijst
                   </a>
-                  <a class="dropdown-item" routerLink="/lijst" (click)="onClearList()">
+                  <a class="dropdown-item text-info" routerLink="/lijst" (click)="onClearList()">
                       <fa name="trash"></fa> <!-- Ref: FontAwesome_2018 -->
                       Maak lijst leeg
                     </a>
@@ -55,5 +55,22 @@
         </div>
       </div> <!-- end row -->
 
+      <!-- modal shown when function is not yet implemented -->
+      <div class="modal" id="notImplementedMNodal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Deze functie werkt nog niet</h3>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              Misschien is dit volgend jaar in orde?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Sluiten</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div> <!-- end container -->
   </div> <!-- end container-fluid -->
