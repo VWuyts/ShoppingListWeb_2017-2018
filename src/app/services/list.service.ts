@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ListItem } from '../list/list-item';
+import { ListItem } from '../list/list-item/list-item';
 import { Product } from '../list/product';
+import { last } from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class ListService {
-  shoppingList: ListItem[] = [
+  private shoppingList: ListItem[] = [
     {id: 1, amount: 0, inPromotion: true, productId: 4, name: 'Bananen', category: 'Fruit', unit: 'tros', image: 'bananen.png',
       note: 'Fair trade', shop: 'Delhaize', isFixedShop: true},
     {id: 2, amount: 0, inPromotion: false, productId: 2, name: 'Ananas', category: 'Fruit', unit: 'stuk', image: '',
@@ -13,8 +14,8 @@ export class ListService {
       note: '', shop: '', isFixedShop: false},
     {id: 4, amount: 0, inPromotion: false, productId: 45, name: 'Witte selder', category: 'Groenten', unit: '', image: '',
       note: '', shop: '', isFixedShop: false},
-    {id: 5, amount: 0, inPromotion: true, productId: 142, name: 'Cappellini', category: 'Pasta en granen', unit: '', image: '',
-      note: '', shop: '', isFixedShop: false},
+    {id: 5, amount: 3, inPromotion: true, productId: 142, name: 'Cappellini', category: 'Pasta en granen', unit: 'Pak', image: '',
+      note: 'Barilla', shop: 'Colruyt', isFixedShop: false},
     {id: 6, amount: 0, inPromotion: false, productId: 232, name: 'Witte bonen', category: 'Conserven', unit: '', image: '',
       note: '', shop: '', isFixedShop: false},
     {id: 7, amount: 0, inPromotion: false, productId: 133, name: 'Sojaroom', category: 'Zuivel', unit: '', image: '',
@@ -22,7 +23,7 @@ export class ListService {
     {id: 8, amount: 0, inPromotion: false, productId: 246, name: 'Erwten', category: 'Diepvries', unit: '', image: '',
       note: '', shop: 'Delhaize', isFixedShop: true}
   ];
-  lastId = 8;
+  private lastId = 8;
 
   constructor() { }
 
@@ -75,5 +76,11 @@ export class ListService {
     if (index >= 0) {
       this.shoppingList.splice(index, 1);
     }
+  }
+
+  clearShoppingList() {
+    this.shoppingList = [];
+    this.lastId = 0;
+    console.log(this.shoppingList);
   }
 }

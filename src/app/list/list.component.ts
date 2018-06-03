@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ListService } from '../services/list.service';
-import { ListItem } from './list-item';
+import { ListItem } from './list-item/list-item';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class ListComponent implements OnInit {
   categories: string[] = [];
   shoppingList: ListItem[] = [];
   shoppingListCategory: ListItem[][];
+  emptyList = false;
   @Input() childSortAbc: boolean;
 
   constructor(private listService: ListService, private productService: ProductService) { }
@@ -25,4 +26,11 @@ export class ListComponent implements OnInit {
     }
   }
 
+  clearShoppingList() {
+    this.shoppingList = [];
+    for (let i = 0; i < this.shoppingListCategory.length; i++) {
+      this.shoppingListCategory[i] = [];
+    }
+    this.emptyList = true;
+  }
 }

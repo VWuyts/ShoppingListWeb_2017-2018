@@ -16,16 +16,16 @@
         </div>
         <div class="col-md-6 align-bottom">
           <a class="btn btn-outline-info" routerLink="./voegProductToe">
-            <fa name="plus-square"></fa> <!-- Ref: FontAwesome2018 -->
+            <fa name="plus-square"></fa> <!-- Ref: FontAwesome_2018 -->
             Voeg product toe
           </a>
           <div class="btn-group pull-right">
             <a class="btn btn-outline-info" routerLink="./deelLijst">
-              <fa name="share-alt"></fa> <!-- Ref: FontAwesome2018 -->
+              <fa name="share-alt"></fa> <!-- Ref: FontAwesome_2018 -->
               Deel lijst
             </a>
             <a class="btn btn-outline-info" routerLink="./printLijst">
-              <fa name="print"></fa> <!-- Ref: FontAwesome2018 -->
+              <fa name="print"></fa> <!-- Ref: FontAwesome_2018 -->
               Print lijst
             </a>
             <div class="dropdown">
@@ -34,11 +34,11 @@
                 </button>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" routerLink="./mailLijst">
-                    <fa name="envelope"></fa> <!-- Ref: FontAwesome2018 -->
+                    <fa name="envelope"></fa> <!-- Ref: FontAwesome_2018 -->
                     Mail lijst
                   </a>
-                  <a class="dropdown-item" routerLink="/lijst">
-                      <fa name="trash"></fa> <!-- Ref: FontAwesome2018 -->
+                  <a class="dropdown-item" routerLink="/lijst" (click)="onClearList()">
+                      <fa name="trash"></fa> <!-- Ref: FontAwesome_2018 -->
                       Maak lijst leeg
                     </a>
                 </div>

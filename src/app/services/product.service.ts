@@ -548,6 +548,7 @@ export class ProductService {
     'g',
     'kg',
     'Stuk',
+    'Pak',
     'Zakje',
     'Bakje',
     'Netje',

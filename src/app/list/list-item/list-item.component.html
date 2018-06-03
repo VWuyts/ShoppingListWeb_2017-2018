@@ -1,0 +1,15 @@
+<div class="row text-dark">
+  <div class="col-2 imgHeight">
+      <img *ngIf="showImage" src="{{imageSource}}" alt="Productfoto" class="imgHeight" />
+  </div>
+  <div class="col-7">
+    <h6 class="m-0">{{childListItem.name}}</h6>
+    <span class="text-muted">{{getCompleteNote()}}</span>
+  </div>
+  <div class="col-1">
+    <h2 *ngIf="childListItem.inPromotion">$</h2>
+  </div>
+  <div class="col-2">
+    <img *ngIf="showShop" src="{{shopSource}}" alt="winkellogo" class="logoWidth" />
+  </div>
+</div>

@@ -8,12 +8,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReferencesComponent } from './references/references.component';
-import { HomeComponent } from './home/home.component';
-import { ConstructionComponent } from './construction/construction.component';
 import { ListComponent } from './list/list.component';
 import { ListMainComponent } from './list/list-main/list-main.component';
 import { AddProductComponent } from './list/add-product/add-product.component';
 import { EditProductComponent } from './list/edit-product/edit-product.component';
+import { HomeComponent } from './home/home.component';
+import { ConstructionComponent } from './construction/construction.component';
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { ListItemComponent } from './list/list-item/list-item.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,7 +34,9 @@ const appRoutes: Routes = [
   { path: 'recepten', component: ConstructionComponent },
   { path: 'referenties', component: ReferencesComponent },
   { path: 'registreren', component: ConstructionComponent },
-  { path: 'winkels', component: ConstructionComponent }
+  { path: 'winkels', component: ConstructionComponent },
+  { path: '404-page', component: PageNotFoundComponentComponent },
+  { path: '**', redirectTo: '404-page'}
 ];
 
 
@@ -46,7 +51,9 @@ const appRoutes: Routes = [
     ListComponent,
     ListMainComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    PageNotFoundComponentComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,9 @@ export class ReferenceService {
       url: 'https://angular.io/docs', urlDate: new Date('2018-05-02')},
     {id: 'W3SchoolsBootstrap_2018', author: 'W3Schools.com', title: 'Bootstrap 4 Tutorial', year: 2018, organisation: '',
       url: 'https://www.w3schools.com/bootstrap4/default.asp', urlDate: new Date('2018-05-02')},
+    {id: 'AngularViewChild_2018', author: 'Angular',
+      title: 'Component Interaction - Parent calls an @ViewChild()', year: 2018, organisation: 'Google',
+      url: 'https://angular.io/guide/component-interaction#countdown-timer-example', urlDate: new Date('2018-05-02')},
     {id: 'AngularPipes_2018', author: 'Angular',
       title: 'Pipes - Appendix: No FilterPipe or OrderByPipe', year: 2018, organisation: 'Google',
       url: 'https://angular.io/guide/pipes#appendix-no-filterpipe-or-orderbypipe', urlDate: new Date('2018-05-02')},
@@ -20,9 +23,9 @@ export class ReferenceService {
     {id: 'SmugglerFlyn_2014', author: 'smugglerFlyn', title: 'Best way to override Bootstrap CSS', year: 2014,
       organisation: 'Stack Overflow', url: 'https://stackoverflow.com/questions/20721248/best-way-to-override-bootstrap-css',
       urlDate: new Date('2018-05-02')},
-    {id: 'FontAwesome2018', author: 'Fonticons, Inc', title: 'Font Awesome Icons', year: 2018, organisation: '',
+    {id: 'FontAwesome_2018', author: 'Fonticons, Inc', title: 'Font Awesome Icons', year: 2018, organisation: '',
       url: 'https://fontawesome.com/icons?d=gallery', urlDate: new Date('2018-05-22')},
-    {id: 'ProdrawGraphics2018', author: 'ProDraw Graphics', title: 'Free Online *.ICO icon Generator', year: 2018,
+    {id: 'ProdrawGraphics_2018', author: 'ProDraw Graphics', title: 'Free Online *.ICO icon Generator', year: 2018,
       organisation: '', url: 'http://www.prodraw.net/favicon', urlDate: new Date('2018-06-02')},
   ];
 
