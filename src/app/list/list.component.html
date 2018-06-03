@@ -1,0 +1,32 @@
+<!-- alphabetically sorted -->
+<div *ngIf="!emptyList && childSortAbc">
+  <div class="list-group">
+    <a
+      routerLink="./pasProductAan/{{listItem.id}}"
+      class="list-group-item p-1"
+      *ngFor="let listItem of shoppingList">
+      <app-list-item [childListItem]="listItem"></app-list-item>
+    </a>
+  </div>
+</div>
+
+<!-- sorted per category -->
+<div *ngIf="!emptyList && !childSortAbc">
+  <div *ngFor="let category of categories; index as i">
+    <p class="border border-left-0 border-right-0 m-0 pl-2"
+      *ngIf="shoppingListCategory[i].length > 0">
+      {{category}}
+    </p>
+    <div class="list-group">
+      <a
+        routerLink="./pasProductAan/{{listItem.id}}"
+        class="list-group-item p-1"
+        *ngFor="let listItem of shoppingListCategory[i]">
+        <app-list-item [childListItem]="listItem"></app-list-item>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
