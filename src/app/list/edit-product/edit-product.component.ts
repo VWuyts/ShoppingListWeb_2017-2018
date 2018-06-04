@@ -64,10 +64,10 @@ export class EditProductComponent implements OnInit {
     const productIndex = this.productService.getProductIndex(this.itemName);
     let product: Product;
     if (productIndex < 0) {
-      product = this.productService.addProduct(this.itemName, this.itemCategory, this.itemUnit, '', this.itemNote,
+      product = this.productService.addProduct(this.itemName, this.itemCategory, this.itemUnit, this.listItem.image, this.itemNote,
         this.itemShop, this.itemIsFixedShop, this.itemIsFavourite);
     } else {
-      product = this.productService.updateProduct(productIndex, this.itemCategory, this.itemUnit, '',
+      product = this.productService.updateProduct(productIndex, this.itemCategory, this.itemUnit, this.listItem.image,
         this.itemNote, this.itemShop, this.itemIsFixedShop);
     }
     this.listService.updateItemInList(this.id, this.itemAmount, this.itemInPromotion, product);
