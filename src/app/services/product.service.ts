@@ -544,7 +544,8 @@ export class ProductService {
     'Conserven',
     'Sauzen',
     'Diepvries',
-    'Papierwaren'
+    'Papierwaren',
+    'Andere'
   ];
   units: string[] = [
     'g',
