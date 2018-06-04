@@ -1,5 +1,5 @@
 <!-- alphabetically sorted -->
-<div *ngIf="!emptyList && childSortAbc">
+<div *ngIf="getShoppingList().length && childSortAbc">
   <div class="list-group">
     <a
       routerLink="./pasProductAan/{{listItem.id}}/{{listItem.name}}"
@@ -11,7 +11,7 @@
 </div>
 
 <!-- sorted per category -->
-<div *ngIf="!emptyList && !childSortAbc">
+<div *ngIf="getShoppingList().length && !childSortAbc">
   <div *ngFor="let category of categories; index as i">
     <p class="border border-left-0 border-right-0 m-0 pl-2"
       *ngIf="getShoppingListFor(category).length">
@@ -29,7 +29,7 @@
 </div>
 
 <!-- empty list -->
-<div *ngIf="emptyList">
+<div *ngIf="!getShoppingList().length">
   <h5>Je boodschappenlijst is nog leeg</h5>
   <a class="btn btn-info my-5" routerLink="./voegProductToe">Voeg een product toe</a>
 </div>

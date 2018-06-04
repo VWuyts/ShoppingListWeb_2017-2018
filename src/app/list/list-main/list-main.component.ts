@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ListComponent } from '../list.component';
 import { ListService } from '../../services/list.service';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
@@ -12,8 +11,6 @@ import { Router } from '@angular/router';
   providers: [ListService, ProductService],
 })
 export class ListMainComponent implements OnInit {
-  @ViewChild(ListComponent) /* Ref: AngularViewChild_2018 */
-  private listComponent: ListComponent;
   sortAbc: boolean;
 
   constructor(private listService: ListService, private router: Router) { }
@@ -33,6 +30,5 @@ export class ListMainComponent implements OnInit {
   onClearList() {
     // TODO: ask confirmation
     this.listService.clearShoppingList();
-    this.listComponent.emptyList = true;
   }
 }

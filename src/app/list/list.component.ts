@@ -10,7 +10,6 @@ import { ProductService } from '../services/product.service';
 })
 export class ListComponent implements OnInit {
   categories: string[] = [];
-  emptyList = false;
   @Input() childSortAbc: boolean;
 
   constructor(private listService: ListService, private productService: ProductService) { }
