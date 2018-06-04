@@ -10,4 +10,5 @@ export class ListItem {
   public note: string;
   public shop: string;
   public isFixedShop: boolean;
+  public isFavourite: boolean;
 }

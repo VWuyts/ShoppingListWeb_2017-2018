@@ -1,4 +1,13 @@
-<h5 class="mb-3">{{title}}</h5>
+<div class="mb-3">
+  <!--<h5 class="mb-3">{{title}}</h5>-->
+  <span class="font-weight-bold">{{title}}</span>
+  <button class="btn pull-right"
+    [ngClass]="{'btn-success': itemIsFavourite, 'btn-outline-success': !itemIsFavourite}"
+    (click)="toggleFavourite()">
+    <fa name="heart"></fa><!-- Ref: FontAwesome_2018 -->
+    {{favouriteBtn}}
+  </button>
+</div>
 <div class="row">
   <div class="col-4">
       <img src="{{itemImage}}" alt="productfoto"/>

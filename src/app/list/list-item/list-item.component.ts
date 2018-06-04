@@ -8,18 +8,10 @@ import { ListItem } from './list-item';
 })
 export class ListItemComponent implements OnInit {
   @Input() childListItem: ListItem;
-  showImage: boolean;
-  imageSource: string;
-  showShop: boolean;
-  shopSource: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.showImage = this.childListItem.image !== '';
-    this.imageSource = '/assets/images/' + this.childListItem.image;
-    this.showShop = this.childListItem.shop !== '';
-    this.shopSource = '/assets/images/logo_' + this.childListItem.shop + '.png';
   }
 
   getNote() {

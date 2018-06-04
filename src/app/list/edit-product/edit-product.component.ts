@@ -27,6 +27,8 @@ export class EditProductComponent implements OnInit {
   itemIsFixedShop: boolean;
   itemNote: string;
   itemInPromotion: boolean;
+  itemIsFavourite: boolean;
+  favouriteBtn: string;
 
   constructor(private listService: ListService, private productService: ProductService,
     private route: ActivatedRoute, private router: Router) { }
@@ -48,6 +50,8 @@ export class EditProductComponent implements OnInit {
           this.itemIsFixedShop = this.listItem ? this.listItem.isFixedShop : false;
           this.itemNote = this.listItem ? this.listItem.note : '';
           this.itemInPromotion = this.listItem ? this.listItem.inPromotion : false;
+          this.itemIsFavourite = this.listItem ? this.listItem.isFavourite : false;
+          this.favouriteBtn = this.itemIsFavourite ? 'Verwijder uit favorieten' : 'Zet bij favorieten';
         }
       );
 
@@ -61,7 +65,7 @@ export class EditProductComponent implements OnInit {
     let product: Product;
     if (productIndex < 0) {
       product = this.productService.addProduct(this.itemName, this.itemCategory, this.itemUnit, '', this.itemNote,
-        this.itemShop, this.itemIsFixedShop);
+        this.itemShop, this.itemIsFixedShop, this.itemIsFavourite);
     } else {
       product = this.productService.updateProduct(productIndex, this.itemCategory, this.itemUnit, '',
         this.itemNote, this.itemShop, this.itemIsFixedShop);
@@ -77,4 +81,10 @@ export class EditProductComponent implements OnInit {
     this.router.navigate(['/lijst']);
   }
 
+  toggleFavourite() {
+    this.listService.toggleFavourite(this.listItem);
+    this.productService.toggleFavourite(this.listItem.productId);
+    this.itemIsFavourite = this.listItem ? this.listItem.isFavourite : false;
+    this.favouriteBtn = this.itemIsFavourite ? 'Verwijder uit favorieten' : 'Zet bij favorieten';
+  }
 }
