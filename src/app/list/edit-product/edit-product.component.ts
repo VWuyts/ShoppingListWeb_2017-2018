@@ -61,18 +61,21 @@ export class EditProductComponent implements OnInit {
   }
 
   onEditListItem() {
-    const productIndex = this.productService.getProductIndex(this.itemName);
-    const image = this.listItem ? this.listItem.image : '';
-    const category = this.itemCategory || 'Andere';
-    let product: Product;
-    if (productIndex < 0) {
-      product = this.productService.addProduct(this.itemName, category, this.itemUnit, image, this.itemNote,
-        this.itemShop, this.itemIsFixedShop, this.itemIsFavourite);
-    } else {
-      product = this.productService.updateProduct(productIndex, category, this.itemUnit, image,
-        this.itemNote, this.itemShop, this.itemIsFixedShop);
+    if (this.itemName && this.itemName !== 'Nieuw product') {
+      const productIndex = this.productService.getProductIndex(this.itemName);
+      const image = this.listItem ? this.listItem.image : '';
+      const category = this.itemCategory || 'Andere';
+      let product: Product;
+      if (productIndex < 0) {
+        product = this.productService.addProduct(this.itemName, category, this.itemUnit, image, this.itemNote,
+          this.itemShop, this.itemIsFixedShop, this.itemIsFavourite);
+      } else {
+        product = this.productService.updateProduct(productIndex, category, this.itemUnit, image,
+          this.itemNote, this.itemShop, this.itemIsFixedShop);
+      }
+      this.listService.updateItemInList(this.id, this.itemAmount, this.itemInPromotion, product);
     }
-    this.listService.updateItemInList(this.id, this.itemAmount, this.itemInPromotion, product);
+
     this.router.navigate(['/lijst']);
   }
 
