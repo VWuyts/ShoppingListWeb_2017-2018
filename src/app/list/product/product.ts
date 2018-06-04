@@ -7,4 +7,5 @@ export class Product {
   public note: string;
   public shop: string;
   public isFixedShop: boolean;
+  public isFavourite: boolean;
 }
