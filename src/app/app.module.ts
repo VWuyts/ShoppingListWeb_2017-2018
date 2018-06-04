@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReferencesComponent } from './references/references.component';
-import { ListMainComponent } from './list/list-main/list-main.component';
 import { ListComponent } from './list/list.component';
+import { ListMainComponent } from './list/list-main/list-main.component';
 import { ListItemComponent } from './list/list-item/list-item.component';
 import { UnitPipe } from './pipes/unit.pipe';
 import { LimitPipe } from './pipes/limit.pipe';
 import { AddProductComponent } from './list/add-product/add-product.component';
+import { AddCatalogueProductComponent } from './list/add-catalogue-product/add-catalogue-product.component';
+import { ProductComponent } from './list/product/product.component';
 import { EditProductComponent } from './list/edit-product/edit-product.component';
 import { HomeComponent } from './home/home.component';
 import { ConstructionComponent } from './construction/construction.component';
@@ -27,6 +29,8 @@ const appRoutes: Routes = [
   { path: 'download', component: ConstructionComponent },
   { path: 'hulp', component: ConstructionComponent },
   { path: 'lijst', component: ListMainComponent, children: [
+    { path: 'catalogus/:category', component: AddCatalogueProductComponent },
+    { path: 'nieuwProduct/:id/:name', component: EditProductComponent },
     { path: 'pasProductAan/:id/:name', component: EditProductComponent },
     { path: 'voegProductToe', component: AddProductComponent }
   ]},
@@ -46,12 +50,14 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     ReferencesComponent,
-    ListMainComponent,
     ListComponent,
+    ListMainComponent,
     ListItemComponent,
     UnitPipe,
     LimitPipe,
     AddProductComponent,
+    AddCatalogueProductComponent,
+    ProductComponent,
     EditProductComponent,
     HomeComponent,
     ConstructionComponent,

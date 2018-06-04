@@ -24,7 +24,7 @@ export class ReferenceService {
       organisation: 'Stack Overflow', url: 'https://stackoverflow.com/questions/20721248/best-way-to-override-bootstrap-css',
       urlDate: new Date('2018-05-02')},
     {id: 'FontAwesome_2018', author: 'Fonticons, Inc', title: 'Font Awesome Icons', year: 2018, organisation: '',
-      url: 'https://fontawesome.com/icons?d=gallery', urlDate: new Date('2018-05-22')},
+      url: 'https://fontawesome.com/icons', urlDate: new Date('2018-05-22')},
     {id: 'ProdrawGraphics_2018', author: 'ProDraw Graphics', title: 'Free Online *.ICO icon Generator', year: 2018,
       organisation: '', url: 'http://www.prodraw.net/favicon', urlDate: new Date('2018-06-02')},
     {id: 'Mahval_2017', author: 'mahval', title: 'Get value from select option in Angular 4', year: 2017,

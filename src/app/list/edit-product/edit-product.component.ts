@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListItem } from '../list-item/list-item';
-import { Product } from '../product';
+import { Product } from '../product/product';
 import { ListService } from '../../services/list.service';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -40,8 +40,8 @@ export class EditProductComponent implements OnInit {
           this.id = +params.get('id');
           this.itemName = params.get('name');
           this.listItem = this.listService.getListItem(this.id);
-          this.title = this.id >= 0 ? 'Product aanpassen' : 'Nieuw product aanmaken';
-          this.itemImage = this.listItem.image ? '/assets/images/' + this.listItem.image
+          this.title = this.id >= 0 ? 'Product aanpassen' : 'Nieuw product maken';
+          this.itemImage = this.listItem && this.listItem.image ? '/assets/images/' + this.listItem.image
             : '/assets/images/camera.svg'; // Ref: FontAwesome_2018
           this.itemCategory = this.listItem ? this.listItem.category : '';
           this.itemAmount = this.listItem ? this.listItem.amount : 0;
@@ -60,7 +60,7 @@ export class EditProductComponent implements OnInit {
       this.shops = this.productService.getShops();
   }
 
-  editListItem() {
+  onEditListItem() {
     const productIndex = this.productService.getProductIndex(this.itemName);
     let product: Product;
     if (productIndex < 0) {
@@ -70,11 +70,11 @@ export class EditProductComponent implements OnInit {
       product = this.productService.updateProduct(productIndex, this.itemCategory, this.itemUnit, '',
         this.itemNote, this.itemShop, this.itemIsFixedShop);
     }
-    this.listService.updateItemInList(this.listItem.id, this.itemAmount, this.itemInPromotion, product);
+    this.listService.updateItemInList(this.id, this.itemAmount, this.itemInPromotion, product);
     this.router.navigate(['/lijst']);
   }
 
-  deleteListItem() {
+  onDeleteListItem() {
     if (this.listItem) {
       this.listService.removeItemFromList(this.listItem);
     }

@@ -1,5 +1,4 @@
 <div class="mb-3">
-  <!--<h5 class="mb-3">{{title}}</h5>-->
   <span class="font-weight-bold">{{title}}</span>
   <button class="btn pull-right"
     [ngClass]="{'btn-success': itemIsFavourite, 'btn-outline-success': !itemIsFavourite}"
@@ -83,8 +82,8 @@
 <div class="row">
   <div class="col-12">
     <div class="w-75 mx-auto">
-      <button type="button" class="btn btn-danger mt-4 mr-4" (click)="deleteListItem()">Verwijderen</button>
-      <button type="button" class="btn btn-success mt-4" (click)="editListItem()">Klaar</button>
+      <button type="button" class="btn btn-danger mt-4 mr-4" (click)="onDeleteListItem()">Verwijderen</button>
+      <button type="button" class="btn btn-success mt-4" (click)="onEditListItem()">Klaar</button>
     </div>
   </div>
 </div> <!-- end row -->

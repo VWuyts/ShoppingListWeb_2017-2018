@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../list/product';
+import { Product } from '../list/product/product';
+import { ReturnStatement } from '@angular/compiler';
 
 @Injectable()
 export class ProductService {
@@ -219,7 +220,7 @@ export class ProductService {
     {id: 107, name: 'Ricotta', category: 'Kaas', unit: '', image: '',
       note: '', shop: '', isFixedShop: false, isFavourite: false},
     {id: 108, name: 'Roquefort', category: 'Kaas', unit: '', image: '',
-      note: '', shop: '', isFixedShop: false, isFavourite: false},
+      note: '', shop: '', isFixedShop: false, isFavourite: true},
     {id: 109, name: 'Smeerkaas', category: 'Kaas', unit: '', image: '',
       note: '', shop: '', isFixedShop: false, isFavourite: false},
     {id: 110, name: 'Amandelmelk', category: 'Zuivel', unit: '', image: '',
@@ -532,7 +533,7 @@ export class ProductService {
   categories: string[] = [
     'Fruit',
     'Groenten',
-    'Beenhouwerij',
+    'Vlees',
     'Vis',
     'Kaas',
     'Zuivel',
@@ -542,7 +543,8 @@ export class ProductService {
     'Specerijen',
     'Conserven',
     'Sauzen',
-    'Diepvries'
+    'Diepvries',
+    'Papierwaren'
   ];
   units: string[] = [
     'g',
@@ -581,6 +583,27 @@ export class ProductService {
     const result: Product[] = [];
     for (const product of this.products) {
       if (product.category === pCategory) {
+        result.push(product);
+      }
+    }
+    // Ref: AngularPipes_2018
+    result.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      } else if (a.name > b.name) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
+    return result;
+  }
+
+  getFavourites() {
+    const result: Product[] = [];
+    for (const product of this.products) {
+      if (product.isFavourite) {
         result.push(product);
       }
     }

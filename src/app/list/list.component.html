@@ -3,7 +3,7 @@
   <div class="list-group">
     <a
       routerLink="./pasProductAan/{{listItem.id}}/{{listItem.name}}"
-      class="list-group-item p-1"
+      class="list-group-item list-group-item-action p-1"
       *ngFor="let listItem of getShoppingList()">
       <app-list-item [childListItem]="listItem"></app-list-item>
     </a>
@@ -20,7 +20,7 @@
     <div class="list-group">
       <a
         routerLink="./pasProductAan/{{listItem.id}}/{{listItem.name}}"
-        class="list-group-item p-1"
+        class="list-group-item list-group-item-action p-1"
         *ngFor="let listItem of getShoppingListFor(category)">
         <app-list-item [childListItem]="listItem"></app-list-item>
       </a>
